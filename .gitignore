@@ -1,0 +1,7 @@
+### IntelliJ IDEA ###
+*.iml
+.idea/
+
+### Node ###
+node_modules/
+dist/
