@@ -1,29 +1,30 @@
 import { Commit, ActionTree } from 'vuex'
-import Project from 'model/example/Project'
+import User from 'model/user/User'
 
 // state
 export interface State {
-  project: Nullable<Project>;
+  user: Nullable<User>, // 当前用户
 }
 
 export const state: State = {
-  project: null
+  user: null
 }
 
 /**
  * 通常不直接调用这个方法
  */
 export const mutations = {
-  project(state: State, user: Project) {
-    state.project = user
+  user(state: State, user: User) {
+    state.user = user
   },
+
   /**
    * 清除状态，通常在退出应用时执行
    *
    * @param {State} state
    */
   clear(state: State) {
-    state.project = null
+    state.user = null
   }
 }
 
@@ -33,10 +34,10 @@ export const getters = {}
  * 修改状态只提倡用dispatch
  */
 export const actions: ActionTree<State, any> = {
-  project(context: { commit: Commit }, project: Project) {
-    context.commit('project', project)
+  user(context: {commit: Commit}, user: User) {
+    context.commit('user', user)
   },
-  clear(context: { commit: Commit }) {
+  clear(context: {commit: Commit}) {
     context.commit('clear')
   }
 }

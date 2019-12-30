@@ -1,4 +1,8 @@
 export default class Entity {
-  // id
-  id: Nullable<string>
+    uuid: Nullable<string>
+    filler: Nullable<string>
+    filDate: Nullable<string>
+    lastModifyOper: Nullable<string>
+    lstUpdTime: Nullable<string>
+    oca: Nullable<number>
 }

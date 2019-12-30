@@ -1,4 +1,5 @@
 import { Vue, Component } from 'vue-property-decorator'
+import EnvUtil from 'util/EnvUtil'
 
 @Component({
     components: {}
@@ -8,6 +9,7 @@ export default class Login extends Vue {
     name: string = ''
     password: string = ''
     captcha: string = ''
+    captchaSrc: string = `${EnvUtil.getServiceUrl()}/app/captcha`
     $refs: any
     ruleForm = {
         name: '',
@@ -21,10 +23,11 @@ export default class Login extends Vue {
     }
 
     onLogin() {
-        this.$router.push('projectList')
+        this.$router.push('home')
     }
 
     refreshCaptcha() {
+        this.captchaSrc = `${EnvUtil.getServiceUrl()}/app/captcha?timestamp=${new Date().getTime()}`;
         console.log('刷新验证码')
     }
 

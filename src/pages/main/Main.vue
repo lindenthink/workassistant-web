@@ -1,8 +1,8 @@
 <template>
     <el-container class="main">
         <div class="nav-wrapper" v-show="!isCollapse">
-            <div class="nav-title">测试管理系统</div>
-            <el-menu :default-openeds="['1']" class="menu-width">
+            <div class="nav-title">员工管理系统</div>
+            <el-menu :uniqueOpened="true" :default-active="$route.path" class="menu-width" router>
                 <el-submenu index="1">
                     <template slot="title"><i class="el-icon-message"></i>测试</template>
                     <el-menu-item-group class="nav-li-group">

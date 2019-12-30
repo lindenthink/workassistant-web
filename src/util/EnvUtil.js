@@ -1,29 +1,14 @@
 export default class EnvUtil {
-  static getServiceUrl() {
-    if (EnvUtil.isDev() || EnvUtil.isTest()) {
-      return 'http://api-vcs-test.qianfan123.com:8028/'
-    } else if (EnvUtil.isBranch()) {
-      return 'http://api-vcs-branch.qianfan123.com:8028/'
-    } else if (EnvUtil.isUat()) {
-      return 'http://api-vcs-uat.qianfan123.com:8028/'
-    } else {
-      return 'http://api-vcs-test.qianfan123.com:8028/'
+    static getServiceUrl() {
+        if (EnvUtil.isDev()) {
+            return 'http://localhost:8080/workassistant'
+        } else {
+            return 'http://47.104.243.84:8088/workassistant'
+        }
     }
-  }
 
-  static isDev() {
-    return window.location.href.toLocaleLowerCase().indexOf('://localhost:') !== -1
-  }
+    static isDev() {
+        return window.location.href.toLocaleLowerCase().indexOf('://localhost:') !== -1
+    }
 
-  static isTest() {
-    return window.location.href.toLocaleLowerCase().indexOf('/test') !== -1
-  }
-
-  static isBranch() {
-    return window.location.href.toLocaleLowerCase().indexOf('/branch') !== -1
-  }
-
-  static isUat() {
-    return window.location.href.toLocaleLowerCase().indexOf('/uat') !== -1
-  }
 }

@@ -25,7 +25,7 @@
                                 <div style="position: relative">
                                     <el-input v-model="ruleForm.captcha" placeholder="请输入验证码" ref="captcha" type="captcha" @keydown.native="onConfirm($event,'captcha')" style="margin-top: 10px;margin-right: 10px;width: 150px"></el-input>
                                     <img src="~assets/image/auth/ic_captcha.svg" style="position: absolute;left: 108px;top:22px;width: 15px">
-                                    <a @click="refreshCaptcha()" href="#"><img src="~assets/image/captcha.jpg" style="position: absolute;left: 260px;top:14px; height: 32px;width: 125px"></a>
+                                    <a @click="refreshCaptcha()" href="#"><img :src="captchaSrc" style="position: absolute;left: 260px;top:14px; height: 32px;width: 125px"></a>
                                 </div>
                             </el-form-item>
                         </el-form>

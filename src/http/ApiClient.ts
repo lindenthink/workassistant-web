@@ -25,7 +25,6 @@ export default class ApiClient {
   public static server() {
     // 可以在这里拦截
     const baseUrl = EnvUtil.getServiceUrl();
-    // baseUrl = 'http://localhost:8769/alphamo'
     return ApiClient.create(baseUrl);
   }
 
@@ -43,15 +42,6 @@ export default class ApiClient {
         traceId = ObjectUtil.uuid();
       }
       config.headers.trace_id = traceId;
-      if (config.url && store.state.user) {
-            config.url = config.url.replace('{merchant}', store.state.user.merchant);
-      } else {
-        const user = JSON.parse(sessionStorage.getItem('user')!);
-        if (config.url && user) {
-          config.url = config.url.replace('{merchant}', user.merchant);
-        }
-        // config.url = 'http://api-alphamo-test.qianfan123.com:8001/m01b88888/sale/get?id=0294e8e6-a1fb-461e-ad97-4ee3c744fe3c'
-      }
       return config;
     }, function(error) {
       return Promise.reject(error);
