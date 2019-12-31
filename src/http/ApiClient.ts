@@ -56,7 +56,7 @@ export default class ApiClient {
       } else {
         const error = new Error();
         if (response.data.message) {
-          error.message = response.data.message[0];
+            error.message = response.data.message;
         } else {
           error.message = response.status + '服务器内部异常';
         }

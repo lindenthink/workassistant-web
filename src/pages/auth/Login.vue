@@ -9,9 +9,9 @@
                 <section>
                     <div class="wrap">
                         <el-form :rules="rules" ref="ruleForm" :model="ruleForm">
-                            <el-form-item prop="name">
+                            <el-form-item prop="userid">
                                 <div style="position: relative">
-                                    <el-input v-model="ruleForm.name" placeholder="请输入用户名" ref="name" @keydown.native="onConfirm($event,'name')" style="margin-top: 71px;"></el-input>
+                                    <el-input v-model="ruleForm.userid" placeholder="请输入用户名" ref="userid" @keydown.native="onConfirm($event,'userid')" style="margin-top: 71px;"></el-input>
                                     <img src="~assets/image/auth/ic_login_user_hl.svg" style="position: absolute;left: 108px;top:84px;width: 15px">
                                 </div>
                             </el-form-item>
@@ -32,7 +32,7 @@
                     </div>
                 </section>
                 <section>
-                    <el-button class="btn-login" type="primary" :disabled="!ruleForm.name || !ruleForm.password || !ruleForm.captcha" ref="login" @click="onLogin()">登录</el-button>
+                    <el-button class="btn-login" type="primary" :disabled="!ruleForm.userid || !ruleForm.password || !ruleForm.captcha" ref="login" @click="onLogin()">登录</el-button>
                 </section>
             </div>
         </div>

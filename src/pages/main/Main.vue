@@ -16,7 +16,7 @@
             <el-header class="navbar">
                 <i class="collapse-btn iconfont" :class="{'icon-ic_menufold':isCollapse,'icon-ic_menuunfold':!isCollapse}" @click="onCollapse"/>
                 <el-dropdown class="menu" trigger="click" @command="onMenuClick">
-                    <div class="user-name">小白菜</div>
+                    <div class="user-name">{{user.username}}</div>
                     <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item>登出</el-dropdown-item>
                     </el-dropdown-menu>
@@ -88,7 +88,6 @@
             }
             .user-name {
                 width: 100px;
-                background: url(~assets/image/auth/ic_user.png) #fff center left no-repeat;
                 background-size: 32px;
                 padding-left: 47px;
                 cursor: pointer;
