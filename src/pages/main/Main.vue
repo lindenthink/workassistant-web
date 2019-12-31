@@ -2,14 +2,20 @@
     <el-container class="main">
         <div class="nav-wrapper" v-show="!isCollapse">
             <div class="nav-title">员工管理系统</div>
-            <el-menu :uniqueOpened="true" :default-active="$route.path" class="menu-width" router>
-                <el-submenu index="1">
-                    <template slot="title"><i class="el-icon-message"></i>测试</template>
+            <el-menu :uniqueOpened="true" :default-active="$route.path" class="menu-width" router text-color="#ffffff" active-text-color="#ffffff">
+                <el-menu-item index="/home">
+                    <i class="el-icon-s-home"></i><span slot="title">首页</span>
+                </el-menu-item>
+                <el-submenu>
+                    <template slot="title"><i class="el-icon-s-finance"></i>收支</template>
                     <el-menu-item-group class="nav-li-group">
-                        <template slot="title">分组一</template>
-                        <router-link to="/projectList"><el-menu-item index="1-1">示例管理</el-menu-item></router-link>
+                        <el-menu-item index="/account" key="2-1"><i class="el-icon-s-data"></i>账务</el-menu-item>
+                        <el-menu-item index="/deducation" key="2-2"><i class="el-icon-s-order"></i>条目</el-menu-item>
                     </el-menu-item-group>
                 </el-submenu>
+                <el-menu-item index="/employee">
+                    <i class="el-icon-s-custom"></i><span slot="title">员工</span>
+                </el-menu-item>
             </el-menu>
         </div>
         <el-container>
@@ -88,6 +94,7 @@
             }
             .user-name {
                 width: 100px;
+                background: url(~assets/image/auth/ic_user.png) #fff center left no-repeat;
                 background-size: 32px;
                 padding-left: 47px;
                 cursor: pointer;

@@ -7,7 +7,7 @@
       </div>
     </header>
     <slot></slot>
-    <footer>copyright© 2019 海鼎研发部出品</footer>
+    <footer><p>Copyright @ 2019-{{ new Date().getFullYear() }} LindenThink（<a href="http://47.104.243.84/" target="_blank">菩提思</a>） All Rights Reserved.</p></footer>
   </div>
 </template>
 

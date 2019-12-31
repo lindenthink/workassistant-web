@@ -50,8 +50,6 @@ export default class Login extends Vue {
 
     /**
      * 回车事件
-     * @param event
-     * @param type
      */
     onConfirm(event: any, type: string) {
         let refs: any = this.$refs as any
