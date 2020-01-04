@@ -1,8 +1,8 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-    name: 'Employee',
+    name: 'EmployeeList',
     components: {}
 })
-export default class Employee extends Vue {
+export default class EmployeeList extends Vue {
 }

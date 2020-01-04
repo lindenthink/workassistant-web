@@ -34,11 +34,9 @@ export default class Login extends Vue {
 
     onLogin() {
         LoginApi.login(this.ruleForm).then((resp) => {
-            if (resp.success) {
-                let user: User = new User(this.ruleForm.userid, resp.data.username)
-                this.actionUser(user)
-                this.$router.push('home')
-            }
+            let user: User = new User(this.ruleForm.userid, resp.data.username)
+            this.actionUser(user)
+            this.$router.push('home')
         }).catch((err: Error) => {
             this.$message.error(`登陆失败：${err.message}`)
         })

@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
-    <router-view/>
-  </div>
+    <div id="app">
+        <router-view/>
+    </div>
 </template>
 
 <style lang="scss">
@@ -28,5 +28,9 @@
         background: #f0f2f5;
         font-size: 14px;
         height: 100%;
+    }
+
+    .el-form-item__label {
+        color: gray !important;
     }
 </style>

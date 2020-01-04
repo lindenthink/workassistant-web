@@ -10,7 +10,7 @@
                     <template slot="title"><i class="el-icon-s-finance"></i>收支</template>
                     <el-menu-item-group class="nav-li-group">
                         <el-menu-item index="/account" key="2-1"><i class="el-icon-s-data"></i>账务</el-menu-item>
-                        <el-menu-item index="/deducation" key="2-2"><i class="el-icon-s-order"></i>条目</el-menu-item>
+                        <el-menu-item index="/deduction" key="2-2"><i class="el-icon-s-order"></i>条目</el-menu-item>
                     </el-menu-item-group>
                 </el-submenu>
                 <el-menu-item index="/employee">

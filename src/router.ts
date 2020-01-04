@@ -3,9 +3,9 @@ import Router from 'vue-router'
 import Login from 'pages/auth/Login.vue'
 import Main from 'pages/main/Main.vue'
 import Home from 'pages/home/Home'
-import Account from 'pages/account/Account'
-import Employee from 'pages/employee/Employee'
-import Deducation from 'pages/deducation/Deducation'
+import EmployeeList from 'pages/employee/EmployeeList'
+import AccountList from 'pages/account/AccountList'
+import DeductionList from 'pages/deduction/DeductionList'
 
 Vue.use(Router)
 
@@ -39,17 +39,17 @@ export default new Router({
                 {
                     path: '/account',
                     name: 'account',
-                    component: Account
+                    component: AccountList
                 },
                 {
                     path: '/employee',
                     name: 'employee',
-                    component: Employee
+                    component: EmployeeList
                 },
                 {
-                    path: '/deducation',
-                    name: 'deducation',
-                    component: Deducation
+                    path: '/deduction',
+                    name: 'deduction',
+                    component: DeductionList
                 }
             ]
         }

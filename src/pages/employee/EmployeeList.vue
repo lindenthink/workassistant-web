@@ -2,7 +2,7 @@
 
 </template>
 
-<script lang="ts" src="./Account.ts">
+<script lang="ts" src="./EmployeeList.ts">
 </script>
 
 <style lang="scss">
