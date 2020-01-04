@@ -4,7 +4,7 @@
         <!--内层含滚动条wrapper-->
         <dtl-wrapper>
             <el-card >
-                <el-alert :title="item" type="success" :closable="false" v-for="item,index in notes" :key="index" style="margin-top:30px;color:green">
+                <el-alert :title="item" type="success" :closable="false" v-for="item,index in notes" :key="index" style="margin-bottom:30px;">
                 </el-alert>
             </el-card>
         </dtl-wrapper>

@@ -33,6 +33,7 @@ export default class DeductionList extends Vue {
         }
     ]
     @State('user') user: User
+    dialogTitle: string
     tableData: Deduction[] = []
     curDeduction: Deduction = new Deduction()
     dialogVisible: boolean = false
@@ -59,11 +60,13 @@ export default class DeductionList extends Vue {
     }
 
     showAddDialog() {
+        this.dialogTitle = '新增条目'
         this.curDeduction = new Deduction()
         this.dialogVisible = true
     }
 
     showModifyDialog(deduction: Deduction) {
+        this.dialogTitle = '编辑条目'
         this.curDeduction = deduction
         this.dialogVisible = true
     }

@@ -16,6 +16,9 @@
                 <el-menu-item index="/employee">
                     <i class="el-icon-s-custom"></i><span slot="title">员工</span>
                 </el-menu-item>
+                <el-menu-item index="/settings" disabled>
+                    <i class="el-icon-s-tools"></i><span slot="title">配置</span>
+                </el-menu-item>
             </el-menu>
         </div>
         <el-container>

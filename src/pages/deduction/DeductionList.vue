@@ -30,7 +30,7 @@
             </template>
         </list-wrapper>
 
-        <el-dialog title="编辑条目" :visible.sync="dialogVisible" width="40%" center>
+        <el-dialog :title="dialogTitle" :visible.sync="dialogVisible" width="40%" center>
             <el-form :model="curDeduction" :rules="rules" ref="form" label-width="80px">
                 <el-form-item label="名称" prop="caption">
                     <el-input v-model="curDeduction.caption" placeholder="请输入条目名称"></el-input>
