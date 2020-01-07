@@ -55,8 +55,5 @@
 
 <style lang="scss">
     .deduction-list {
-        .el-input {
-            width: 200px !important;
-        }
     }
 </style>

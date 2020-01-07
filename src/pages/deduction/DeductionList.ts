@@ -51,7 +51,7 @@ export default class DeductionList extends Vue {
     query() {
         const loading = this.$loading(ConstantMgr.loadingOption)
         DeductionApi.query().then((res) => {
-            this.tableData = res.data
+            this.tableData = res.data!
         }).catch((err) => {
             this.$message.error(err.message)
         }).finally(() => {

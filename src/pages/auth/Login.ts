@@ -34,7 +34,7 @@ export default class Login extends Vue {
 
     onLogin() {
         LoginApi.login(this.ruleForm).then((resp) => {
-            let user: User = new User(this.ruleForm.userid, resp.data.username)
+            let user: User = new User(this.ruleForm.userid, resp.data!.username)
             this.actionUser(user)
             this.$router.push('home')
         }).catch((err: Error) => {
