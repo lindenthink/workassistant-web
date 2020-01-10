@@ -1,6 +1,6 @@
 <template>
     <!--顶层含面包屑wrapper-->
-    <page-wrapper :panelArray="panelArray" class="employee-list">
+    <page-wrapper :panelArray="panelArray">
         <!--内层含滚动条wrapper-->
         <list-wrapper>
             <!--搜索栏-->
@@ -12,14 +12,14 @@
                         </form-item>
                     </el-col>
                     <el-col :span="8" style="margin-left: 20px;">
-                        <el-button type="primary" @click="onSearch(1)">查询</el-button>
+                        <el-button type="primary" icon="el-icon-search"  @click="onSearch(1)">查询</el-button>
                     </el-col>
                 </el-row>
             </template>
 
             <!--操作栏-->
             <template slot="toolbar">
-                <el-button size="small" type="primary" @click="showAddDialog">新增员工</el-button>
+                <el-button size="small" type="success" icon="el-icon-circle-plus-outline" @click="showAddDialog">新增员工</el-button>
             </template>
 
             <!--列表栏-->
@@ -67,13 +67,13 @@
         <el-dialog :title="dialogTitle" :visible.sync="dialogVisible" width="40%" center>
             <el-form :model="curEmployee" :rules="rules" ref="form" label-width="80px">
                 <el-form-item label="员工姓名" prop="name">
-                    <el-input v-model="curEmployee.name" placeholder="请输入员工姓名"></el-input>
+                    <el-input v-model="curEmployee.name" placeholder="请输入员工姓名" clearable></el-input>
                 </el-form-item>
                 <el-form-item label="手机号码" prop="phone">
-                    <el-input v-model="curEmployee.phone" placeholder="请输入手机号码"></el-input>
+                    <el-input v-model="curEmployee.phone" placeholder="请输入手机号码" clearable></el-input>
                 </el-form-item>
                 <el-form-item label="银行卡号" prop="bankCardNo">
-                    <el-input v-model="curEmployee.bankCardNo" placeholder="请输入银行卡号"></el-input>
+                    <el-input v-model="curEmployee.bankCardNo" placeholder="请输入银行卡号" clearable></el-input>
                 </el-form-item>
                 <el-form-item label="状态" prop="type">
                     <el-select v-model="curEmployee.state">
@@ -94,6 +94,4 @@
 </script>
 
 <style lang="scss">
-    .employee-list {
-    }
 </style>

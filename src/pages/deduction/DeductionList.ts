@@ -52,8 +52,6 @@ export default class DeductionList extends Vue {
         const loading = this.$loading(ConstantMgr.loadingOption)
         DeductionApi.query().then((res) => {
             this.tableData = res.data!
-        }).catch((err) => {
-            this.$message.error(err.message)
         }).finally(() => {
             loading.close()
         })
@@ -80,8 +78,6 @@ export default class DeductionList extends Vue {
             DeductionApi.delete(deduction.uuid!).then(() => {
                 this.$message.success('删除成功')
                 this.query()
-            }).catch((err) => {
-                this.$message.error(err.message)
             })
         }).catch(() => {
             this.$message({
@@ -99,8 +95,6 @@ export default class DeductionList extends Vue {
                     this.$message.success('保存成功')
                     this.dialogVisible = false
                     this.query()
-                }).catch((err) => {
-                    this.$message.error(err.message)
                 })
             } else {
                 return false

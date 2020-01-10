@@ -9,7 +9,6 @@ import Employee from 'model/employee/Employee'
 import EmployeeApi from 'http/employee/EmployeeApi'
 import EmployeeFilter from 'model/employee/EmployeeFilter'
 import ConstantMgr from 'mgr/ConstantMgr'
-import PageResponse from 'model/response/PageResponse'
 
 @Component({
     name: 'EmployeeList',
@@ -65,13 +64,11 @@ export default class EmployeeList extends Vue {
         const loading = this.$loading(ConstantMgr.loadingOption)
         this.filter.page = !page ? this.page.currentPage - 1 : page - 1 // Page对象下标从0开始
         this.filter.pageSize = this.page.size
-        EmployeeApi.query(this.filter).then((resp: PageResponse<Employee[]>) => {
+        EmployeeApi.query(this.filter).then((resp) => {
             if (resp.data) {
                 this.tableData = resp.data
                 this.page.total = resp.totalRecords!
             }
-        }).catch((e: Error) => {
-            this.$message.error(e.message)
         }).finally(() => {
             loading.close()
         })
@@ -96,8 +93,6 @@ export default class EmployeeList extends Vue {
                     this.$message.success('保存成功')
                     this.dialogVisible = false
                     this.onSearch(1)
-                }).catch((err) => {
-                    this.$message.error(err.message)
                 })
             } else {
                 return false
@@ -114,8 +109,6 @@ export default class EmployeeList extends Vue {
             EmployeeApi.delete(employee.uuid!).then(() => {
                 this.$message.success('删除成功')
                 this.onSearch()
-            }).catch((err) => {
-                this.$message.error(err.message)
             })
         }).catch(() => {
             this.$message({

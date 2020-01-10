@@ -5,7 +5,7 @@
         <list-wrapper>
             <!--操作栏-->
             <template slot="toolbar">
-                <el-button size="small" type="primary" @click="showAddDialog">新增条目</el-button>
+                <el-button size="small" type="success" icon="el-icon-circle-plus-outline" @click="showAddDialog">新增条目</el-button>
             </template>
             <!--列表栏-->
             <template slot="list">
@@ -33,7 +33,7 @@
         <el-dialog :title="dialogTitle" :visible.sync="dialogVisible" width="40%" center>
             <el-form :model="curDeduction" :rules="rules" ref="form" label-width="80px">
                 <el-form-item label="名称" prop="caption">
-                    <el-input v-model="curDeduction.caption" placeholder="请输入条目名称"></el-input>
+                    <el-input v-model="curDeduction.caption" placeholder="请输入条目名称" clearable></el-input>
                 </el-form-item>
                 <el-form-item label="类型" prop="type">
                     <el-select v-model="curDeduction.type" placeholder="请选择收支类型">
