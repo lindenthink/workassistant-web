@@ -8,6 +8,9 @@ export default class DateUtil {
    * @returns {*|string}
    */
   static format(date, fmt = 'yyyy-MM-dd hh:mm:ss') {
+    if (typeof  date === 'string') {
+      return date
+    }
     date = date === undefined ? new Date() : date
     date = typeof date === 'number' ? new Date(date) : date
     fmt = fmt || 'yyyy-MM-dd HH:mm:ss'

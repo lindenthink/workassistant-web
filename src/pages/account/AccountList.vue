@@ -6,7 +6,7 @@
             <!--搜索栏-->
             <template slot="query">
                 <el-row>
-                    <el-col :span="7">
+                    <el-col :span="6">
                         <form-item label="员工">
                             <el-select v-model="filter.employeeUuidEq" filterable placeholder="请选择" clearable>
                                 <el-option v-for="item in employees"
@@ -19,7 +19,7 @@
                             </el-select>
                         </form-item>
                     </el-col>
-                    <el-col :span="7">
+                    <el-col :span="12">
                         <form-item label="账期">
                             <el-date-picker
                                     v-model="accountDateRange"
@@ -34,7 +34,7 @@
                             </el-date-picker>
                         </form-item>
                     </el-col>
-                    <el-col :span="6" style="margin-left: 20px;">
+                    <el-col :span="6">
                         <el-button type="primary" icon="el-icon-search"  @click="onSearch(1)">查询</el-button>
                         <el-button type="info" icon="el-icon-download"  @click="onExport()">导出</el-button>
                     </el-col>
@@ -63,8 +63,8 @@
                     <el-table-column prop="remarks" label="备注"/>
                     <el-table-column label="操作" align="center" width="180">
                         <template slot-scope="scope">
-                            <el-button type="text" @click="showModifyDialog(scope.row)">编辑</el-button>
-                            <el-button type="text" @click="doDelete(scope.row)">删除</el-button>
+                            <el-button @click="showModifyDialog(scope.row)" size="small">编辑</el-button>
+                            <el-button type="danger" @click="doDelete(scope.row)" size="small">删除</el-button>
                         </template>
                     </el-table-column>
                 </el-table>
@@ -77,7 +77,7 @@
                         @size-change="onHandleSizeChange"
                         @current-change="onHandleCurrentChange"
                         current-page="page.currentPage"
-                        :page-sizes="[10, 20, 30, 40]"
+                        :page-sizes="[10, 20, 50, 100]"
                         :page-size="10"
                         layout="total, sizes, prev, pager, next, jumper"
                         :total="page.total">

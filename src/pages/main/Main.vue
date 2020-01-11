@@ -97,7 +97,7 @@
             }
             .user-name {
                 width: 100px;
-                background: url(~assets/image/auth/ic_user.png) #fff center left no-repeat;
+                background: url(~assets/image/auth/ic_user_female.svg) #fff center left no-repeat;
                 background-size: 32px;
                 padding-left: 47px;
                 cursor: pointer;

@@ -13,6 +13,7 @@ import Employee from 'model/employee/Employee'
 import Deduction from 'model/deducation/Deduction'
 import EmployeeApi from 'http/employee/EmployeeApi'
 import DeductionApi from 'http/deducation/DeductionApi'
+import DateUtil from 'util/DateUtil'
 
 @Component({
     name: 'AccountList',
@@ -129,7 +130,17 @@ export default class AccountList extends Vue {
             employeeId: [{ required: true, message: '员工不能为空' }],
             deductionItemId: [{ required: true, message: '扣除条目不能为空' }],
             accountDate: [{ required: true, message: '账期不能为空' }],
-            amount: [{ required: true, message: '金额不能为空' }],
+            amount: [{
+                required: true,
+                trigger: 'change',
+                validator: (rule: string, value: any, callback: (e?: any) => {}) => {
+                    let numberReg = /^([1-9](\d){0,6}|0)(\.(\d){0,2})?$/
+                    if (!value || (value && !numberReg.test(value))) {
+                        return callback(new Error('请输入合法金额'))
+                    }
+                    callback()
+                },
+            }],
         }
     }
 
@@ -168,13 +179,27 @@ export default class AccountList extends Vue {
     }
 
     onExport() {
-        this.$confirm('确认导出当前所有记录?', '提示', {
+        console.log(this.filter)
+        let filterEmpName = '全部员工'
+        if (this.filter.employeeUuidEq) {
+            this.employees.forEach((emp) => {
+                if (emp.uuid === this.filter.employeeUuidEq) {
+                    filterEmpName = emp.name!
+                }
+            })
+        }
+        let fmt = 'yyyy-MM-dd'
+        let confirmMsg = `确认导出【${filterEmpName}】${DateUtil.format(this.filter.accountDateStart!, fmt)}到${DateUtil.format(this.filter.accountDateEnd!, fmt)}期间的所有支出记录?`
+        this.$confirm(confirmMsg, '提示', {
             confirmButtonText: '确定',
             cancelButtonText: '取消',
             type: 'warning'
         }).then(() => {
+            const loading = this.$loading(ConstantMgr.loadingOption)
             AccountApi.export(this.filter).then((res) => {
                 window.open(res.data!)
+            }).finally(() => {
+                loading.close()
             })
         }).catch(() => {
             this.$message({
@@ -182,6 +207,19 @@ export default class AccountList extends Vue {
                 message: '已取消导出'
             })
         })
+    }
+
+    getSummaries(param: any) {
+        const { columns, data } = param
+        // @ts-ignore
+        const sums = []
+        sums[0] = '合计'
+        sums[4] = 0
+        this.tableData.map((account) => {
+            // @ts-ignore
+            sums[4] += account.amount
+        })
+        return sums
     }
 
     showAddDialog() {
