@@ -76,10 +76,8 @@
                     <el-input v-model="curEmployee.bankCardNo" placeholder="请输入银行卡号" clearable></el-input>
                 </el-form-item>
                 <el-form-item label="状态" prop="type">
-                    <el-select v-model="curEmployee.state">
-                        <el-option label="在职" :value.number="1"></el-option>
-                        <el-option label="离职" :value.number="0"></el-option>
-                    </el-select>
+                    <el-radio v-model="curEmployee.state" :label="1">在职</el-radio>
+                    <el-radio v-model="curEmployee.state" :label="0">离职</el-radio>
                 </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">

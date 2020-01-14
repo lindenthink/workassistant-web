@@ -36,10 +36,8 @@
                     <el-input v-model="curDeduction.caption" placeholder="请输入条目名称" clearable></el-input>
                 </el-form-item>
                 <el-form-item label="类型" prop="type">
-                    <el-select v-model="curDeduction.type" placeholder="请选择收支类型">
-                        <el-option label="支出" :value.number="-1"></el-option>
-                        <el-option label="收入" :value.number="1"></el-option>
-                    </el-select>
+                    <el-radio v-model="curDeduction.type" :label="-1">支付</el-radio>
+                    <el-radio v-model="curDeduction.type" :label="1">收入</el-radio>
                 </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
