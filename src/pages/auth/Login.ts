@@ -37,8 +37,6 @@ export default class Login extends Vue {
             let user: User = new User(this.ruleForm.userid, resp.data!.username)
             this.actionUser(user)
             this.$router.push('home')
-        }).catch((err: Error) => {
-            this.$message.error(`登陆失败：${err.message}`)
         })
     }
 
