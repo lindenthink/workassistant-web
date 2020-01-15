@@ -5,7 +5,7 @@ import ObjectUtil from 'util/ObjectUtil.js'
 import ShortcutMgr from 'mgr/ShortcutMgr'
 
 import EnvUtil from 'util/EnvUtil.js'
-import Vue from 'vue'
+import { Message } from 'fant3'
 
 const qs = require('qs')
 axios.defaults.paramsSerializer = (params) => {
@@ -58,7 +58,7 @@ export default class ApiClient {
                 } else {
                     error.message = response.status + '未知异常'
                 }
-                new Vue().$message({
+                Message({
                     type: 'error',
                     message: error.message,
                     duration: 3000
@@ -67,7 +67,7 @@ export default class ApiClient {
             }
         }, function(error) {
             if (!error.response) {
-                new Vue().$message({
+                Message({
                     type: 'error',
                     message: `请求时发生异常：${error}`,
                     duration: 3000
@@ -93,7 +93,7 @@ export default class ApiClient {
                 default:
                     error.message = '未知错误'
             }
-            new Vue().$message({
+            Message({
                 type: 'error',
                 message: error.message,
                 duration: 3000
